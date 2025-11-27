@@ -10,7 +10,7 @@ export default function Sidebar() {
     };
 
     const menuItems = [
-        { path: "/home", icon: "bi-speedometer2", label: "Dashboard" },
+        { path: "/home", icon: "bi-speedometer2", label: "Home" },
         { path: "/category", icon: "bi-tags", label: "Categorías" },
         { path: "/product", icon: "bi-box-seam", label: "Productos" },
     ];
@@ -37,8 +37,8 @@ export default function Sidebar() {
                         <Link
                             to={item.path}
                             className={`nav-link d-flex align-items-center ${location.pathname === item.path
-                                    ? "active"
-                                    : ""
+                                ? "active"
+                                : ""
                                 }`}
                             style={location.pathname === item.path ? {} : { color: "#cbd5e1" }}
                         >

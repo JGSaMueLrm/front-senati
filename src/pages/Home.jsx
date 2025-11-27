@@ -7,7 +7,7 @@ export default function Home() {
         <div className="container-fluid py-4 px-5">
             <div className="row mb-5 align-items-center">
                 <div className="col-md-8">
-                    <h1 className="fw-bold text-white mb-1">Dashboard</h1>
+                    <h1 className="fw-bold mb-1" style={{ color: "#2c3e50" }}>Home</h1>
                     <p className="text-muted mb-0">Resumen general de la actividad del sistema.</p>
                 </div>
                 <div className="col-md-4 text-md-end mt-3 mt-md-0">
