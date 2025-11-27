@@ -1,0 +1,151 @@
+:root {
+  /* Institutional Blue Theme - Inspired by Blackboard */
+  --bs-body-bg: #f5f7fa;
+  /* Light gray-blue background */
+  --bs-body-color: #2c3e50;
+  /* Dark blue-gray text */
+  --bs-primary: #0066cc;
+  /* Institutional blue */
+  --bs-primary-dark: #004d99;
+  /* Darker blue */
+  --bs-secondary: #5a6c7d;
+  /* Muted blue-gray */
+  --bs-accent: #4a90e2;
+  /* Light blue accent */
+  --bs-card-bg: #ffffff;
+  /* White cards */
+  --bs-card-border-color: #d1dce5;
+  /* Light blue-gray border */
+  --bs-sidebar-bg: #2c3e50;
+  /* Dark blue sidebar */
+  --bs-sidebar-hover: #34495e;
+  /* Lighter dark blue */
+  --bs-input-bg: #ffffff;
+  --bs-input-border-color: #cbd5e0;
+  --bs-input-color: #2c3e50;
+  --bs-input-focus-border-color: #0066cc;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bs-body-bg);
+  color: var(--bs-body-color);
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Override Bootstrap Card */
+.card {
+  background-color: var(--bs-card-bg);
+  border-color: var(--bs-card-border-color);
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.08);
+}
+
+/* Override Bootstrap Form Controls */
+.form-control,
+.form-select {
+  background-color: var(--bs-input-bg);
+  border-color: var(--bs-input-border-color);
+  color: var(--bs-input-color);
+}
+
+.form-control:focus,
+.form-select:focus {
+  background-color: var(--bs-input-bg);
+  border-color: var(--bs-input-focus-border-color);
+  color: var(--bs-input-color);
+  box-shadow: 0 0 0 0.25rem rgba(0, 102, 204, 0.15);
+}
+
+.form-control::placeholder {
+  color: #8899a6;
+}
+
+.form-control:disabled,
+.form-control[readonly] {
+  background-color: #f5f7fa;
+  opacity: 0.7;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--bs-primary);
+  border-color: var(--bs-primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--bs-primary-dark);
+  border-color: var(--bs-primary-dark);
+}
+
+/* Navbar overrides if needed */
+.navbar-dark .navbar-nav .nav-link {
+  color: #cbd5e1;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link.active {
+  color: #fff;
+}
+
+/* Sidebar Layout */
+.sidebar-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  overflow-x: hidden;
+  background-color: var(--bs-body-bg);
+}
+
+/* Nav Pills in Sidebar */
+.nav-pills .nav-link {
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  color: #cbd5e1;
+}
+
+.nav-pills .nav-link:hover {
+  background-color: var(--bs-sidebar-hover);
+  color: #ffffff;
+}
+
+.nav-pills .nav-link.active {
+  background-color: var(--bs-primary);
+  color: white;
+}
+
+/* Badge styling */
+.badge {
+  font-weight: 600;
+}
+
+/* Table styling for light theme */
+.table-dark {
+  --bs-table-bg: #ffffff;
+  --bs-table-color: #2c3e50;
+  --bs-table-border-color: #d1dce5;
+}
+
+.table-dark thead {
+  background-color: #f5f7fa;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #f0f4f8;
+}
