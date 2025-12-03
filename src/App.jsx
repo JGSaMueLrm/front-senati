@@ -3,6 +3,7 @@ import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Category from "./pages/Category";
 import Product from "./pages/Product";
+import Users from "./pages/Users";
 import Sidebar from "./components/Sidebar";
 import './App.css'
 
@@ -45,6 +46,13 @@ function App() {
           <AppRoute>
             <LayoutWithSidebar>
               <Product />
+            </LayoutWithSidebar>
+          </AppRoute>
+        } />
+        <Route path="/users" element={
+          <AppRoute>
+            <LayoutWithSidebar>
+              <Users />
             </LayoutWithSidebar>
           </AppRoute>
         } />

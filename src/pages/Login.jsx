@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/Login.css";
+import { authService } from "../services/api";
 
 export default function Login() {
-    const [email, setEmail] = useState("");
+    const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const navigate = useNavigate();
@@ -15,15 +16,24 @@ export default function Login() {
         }
     }, [navigate]);
 
-    const sendUser = (e) => {
+    const sendUser = async (e) => {
         e.preventDefault();
         setError("");
 
-        if (email === "admin@gmail.com" && password === "123") {
-            localStorage.setItem("token", "123");
+        try {
+            await authService.login(username, password);
             navigate("/home");
-        } else {
-            setError("Credenciales incorrectas. Intente nuevamente.");
+        } catch (err) {
+            // FALLBACK: Si falla la API, permitimos entrar con el usuario admin hardcodeado
+            if (username === "admin" && password === "123") {
+                localStorage.setItem("token", "token-admin-temporal");
+                localStorage.setItem("user", JSON.stringify({ nombre: "Administrador", username: "admin", rol: "admin" }));
+                navigate("/home");
+                return;
+            }
+
+            console.error("Login error:", err);
+            setError(err.message || "Error al iniciar sesión. Verifique sus credenciales.");
         }
     }
 
@@ -55,15 +65,15 @@ export default function Login() {
                     <form onSubmit={sendUser}>
                         <div className="mb-3">
                             <label className="form-label fw-semibold small" style={{ color: "#5a6c7d" }}>
-                                <i className="bi bi-envelope me-2"></i>
-                                Correo Electrónico
+                                <i className="bi bi-person me-2"></i>
+                                Usuario
                             </label>
                             <input
-                                type="email"
+                                type="text"
                                 className="form-control form-control-lg"
-                                placeholder="nombre@empresa.com"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
+                                placeholder="Ingrese su usuario"
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
                                 required
                                 style={{ borderRadius: "8px", border: "2px solid #d1dce5" }}
                             />

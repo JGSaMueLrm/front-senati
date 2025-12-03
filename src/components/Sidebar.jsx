@@ -13,6 +13,7 @@ export default function Sidebar() {
         { path: "/home", icon: "bi-speedometer2", label: "Home" },
         { path: "/category", icon: "bi-tags", label: "Categorías" },
         { path: "/product", icon: "bi-box-seam", label: "Productos" },
+        { path: "/users", icon: "bi-people", label: "Usuarios" },
     ];
 
     return (
